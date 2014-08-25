@@ -10,24 +10,24 @@ import com.github.mlaursen.projectm.ScreenPosition;
  *
  */
 public class StageScreenPosition extends ScreenPosition {
-
-	/**
-	 * @param x
-	 * @param y
-	 */
+  
+  /**
+   * @param x
+   * @param y
+   */
   public StageScreenPosition(int x, int y) {
-	  super(x, y);
+    super(x, y);
   }
-	
+  
   @Override
   protected int getNumberOfColumns(int row) {
-  	if(row < 5) {
-  		return 7;
-  	}
-  	else if(row == 5) {
-  		return 6;
-  	}
-  	else return 1;
+    if(row < 5) {
+      return 7;
+    }
+    else if(row == 5) {
+      return 6;
+    }
+    else return 1;
   }
   
 }

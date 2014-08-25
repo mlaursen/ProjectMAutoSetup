@@ -10,8 +10,8 @@ import com.github.mlaursen.robot.Debugable;
  *
  */
 public class Debug extends com.github.mlaursen.robot.Debug {
-	
-	public static void alywasDebug(Debugable debugable) {
-		debug(debugable.getLogMessage());
-	}
+  
+  public static void alywasDebug(Debugable debugable) {
+    debug(debugable.getLogMessage());
+  }
 }

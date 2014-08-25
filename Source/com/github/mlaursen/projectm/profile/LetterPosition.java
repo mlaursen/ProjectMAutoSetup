@@ -18,43 +18,43 @@ import com.github.mlaursen.robot.RobotAction;
 public class LetterPosition extends ScreenPosition {
   private int numberOfAPresses;
   public LetterPosition(int x, int y, int numberOfAPresses) {
-  	super(x, y);
-  	this.numberOfAPresses = numberOfAPresses;
+    super(x, y);
+    this.numberOfAPresses = numberOfAPresses;
   }
-
+  
   public int getNumberOfAPresses() {
-  	return this.numberOfAPresses;
+    return this.numberOfAPresses;
   }
   
   public void updateToCase(Character c) {
-  	Character lower = Character.toLowerCase(c);
-  	if(lower.equals(c)) {
-  		numberOfAPresses *= 2;
-  	}
+    Character lower = Character.toLowerCase(c);
+    if(lower.equals(c)) {
+      numberOfAPresses *= 2;
+    }
   }
-
-	
+  
+  
   @Override
   public List<RobotAction> getControlsTo(ScreenPosition position) {
-  	List<RobotAction> actions = new ArrayList<>();
-  	if(!(position instanceof LetterPosition)) {
-  		Debug.debug("Invalid screen position to mvoe from.");
-  		return actions;
-  	}
-  	actions.addAll(super.getControlsTo(position));
-  	for(int i = 1; i < ((LetterPosition) position).getNumberOfAPresses(); i++) {
-  		actions.add(Action.A.getRobotAction());
-  	}
-	  return actions;
+    List<RobotAction> actions = new ArrayList<>();
+    if(!(position instanceof LetterPosition)) {
+      Debug.debug("Invalid screen position to mvoe from.");
+      return actions;
+    }
+    actions.addAll(super.getControlsTo(position));
+    for(int i = 1; i < ((LetterPosition) position).getNumberOfAPresses(); i++) {
+      actions.add(Action.A.getRobotAction());
+    }
+    return actions;
   }
-
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+  
+  
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
   @Override
   public String toString() {
-	  return "LetterPosition [x=" + x + ", y=" + y + ", numberOfAPresses=" + numberOfAPresses + "]";
+    return "LetterPosition [x=" + x + ", y=" + y + ", numberOfAPresses=" + numberOfAPresses + "]";
   }
   
   

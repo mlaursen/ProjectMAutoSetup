@@ -8,7 +8,7 @@ package com.github.mlaursen.robot;
  *
  */
 public interface RobotSettings {
-	
-	boolean isDebug();
-	int getLatency();
+  
+  boolean isDebug();
+  int getLatency();
 }

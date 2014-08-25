@@ -8,6 +8,6 @@ package com.github.mlaursen.robot;
  *
  */
 public interface Debugable {
-	
-	String getLogMessage();
+  
+  String getLogMessage();
 }

@@ -8,10 +8,10 @@ package com.github.mlaursen.robot;
  *
  */
 public interface RobotKey {
-	
-	/**
-	 * 
-	 * @return an int for the Key Code for the given RobotKey
-	 */
-	int getKeyCode();
+  
+  /**
+   * 
+   * @return an int for the Key Code for the given RobotKey
+   */
+  int getKeyCode();
 }

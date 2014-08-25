@@ -15,21 +15,21 @@ import com.github.mlaursen.projectm.logging.Debug;
  *
  */
 public class Robot {
-	
-	private static final int DEFAULT_KEY_EVENT_DURATION = 35;
-	
-	/**
-	 * This is how long a key will be pressed. If {@link #setKeyEventDuration(int)}
-	 * is not called, <tt>{@value #DEFAULT_KEY_EVENT_DURATION}</tt> will be used
-	 */
-	private int keyEventDuration;
-	private RobotSettings settings;
-	private java.awt.Robot r;
-	private List<RobotAction> actions = new ArrayList<>();
+  
+  private static final int DEFAULT_KEY_EVENT_DURATION = 35;
+  
+  /**
+   * This is how long a key will be pressed. If {@link #setKeyEventDuration(int)}
+   * is not called, <tt>{@value #DEFAULT_KEY_EVENT_DURATION}</tt> will be used
+   */
+  private int keyEventDuration;
+  private RobotSettings settings;
+  private java.awt.Robot r;
+  private List<RobotAction> actions = new ArrayList<>();
   public Robot(UserSettings settings) throws AWTException {
-  	r = new java.awt.Robot();
-  	this.settings = settings;
-  	this.keyEventDuration = DEFAULT_KEY_EVENT_DURATION;
+    r = new java.awt.Robot();
+    this.settings = settings;
+    this.keyEventDuration = DEFAULT_KEY_EVENT_DURATION;
   }
   
   /**
@@ -40,27 +40,27 @@ public class Robot {
    * and then wait for the {@link RobotAction#getWait() RobotAction's wait time}
    */
   public synchronized void automate() {
-  	for(RobotAction a : actions) {
-  		sendAction(a);
-  	}
+    for(RobotAction a : actions) {
+      sendAction(a);
+    }
   }
   
   private synchronized void sendAction(RobotAction a) {
-  	Debug.debug(a, settings);
-  	
-  	r.keyPress(a.getKey());
-  	r.delay(keyEventDuration);
-  	r.keyRelease(a.getKey());
-  	
-  	r.delay(settings.getLatency());
-  	r.delay(a.getWait());
+    Debug.debug(a, settings);
+    
+    r.keyPress(a.getKey());
+    r.delay(keyEventDuration);
+    r.keyRelease(a.getKey());
+    
+    r.delay(settings.getLatency());
+    r.delay(a.getWait());
   }
   
   /**
    * @param keyEventDuration the keyEventDuration to set
    */
   public void setKeyEventDuration(int keyEventDuration) {
-	  this.keyEventDuration = keyEventDuration;
+    this.keyEventDuration = keyEventDuration;
   }
   
   /**
@@ -68,7 +68,7 @@ public class Robot {
    * @param action a {@link RobotAction} to add the the list of actions
    */
   public void addAction(RobotAction action) {
-  	this.actions.add(action);
+    this.actions.add(action);
   }
   
   /**
@@ -76,7 +76,7 @@ public class Robot {
    * @param actions
    */
   public void addActions(List<RobotAction> actions) {
-  	this.actions.addAll(actions);
+    this.actions.addAll(actions);
   }
   
   /**
@@ -85,9 +85,9 @@ public class Robot {
    * @param amount
    */
   public void addRepeatingAction(RobotAction action, int amount) {
-  	for(int i = 0; i < amount; i++) {
-  		addAction(action);
-  	}
+    for(int i = 0; i < amount; i++) {
+      addAction(action);
+    }
   }
   
   /**
@@ -95,6 +95,6 @@ public class Robot {
    * @return
    */
   public List<RobotAction> getActions() {
-  	return this.actions;
+    return this.actions;
   }
 }

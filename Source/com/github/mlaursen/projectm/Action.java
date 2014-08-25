@@ -11,24 +11,24 @@ import com.github.mlaursen.robot.RobotKey;
  *
  */
 public enum Action implements RobotKey {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-	START,
-	B,
-	A;
-	
-	public RobotAction getRobotAction() {
-		return new RobotAction(this);
-	}
-	
-	public RobotAction getRobotAction(int wait) {
-		return new RobotAction(this, wait);
-	}
-	
+  UP,
+  DOWN,
+  LEFT,
+  RIGHT,
+  START,
+  B,
+  A;
+  
+  public RobotAction getRobotAction() {
+    return new RobotAction(this);
+  }
+  
+  public RobotAction getRobotAction(int wait) {
+    return new RobotAction(this, wait);
+  }
+  
   @Override
   public int getKeyCode() {
-	  return UserSettings.getKey(this);
+    return UserSettings.getKey(this);
   }
 }
